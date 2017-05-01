@@ -9,6 +9,7 @@
 <!doctype html>
 <html>
 <head>
+    <meta charset="UTF-8">
 <title>Cadastro de clientes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -45,16 +46,63 @@
 </div>
 <!--FIM DO NAV-->
 
+
+<!-- ENTRADA DE DADOS -->
 <h1 class="agileits w3 wthree w3-agile w3-agileits agileinfo agile">Cadastro de clientes</h1>
+<div class="content-w3ls agileits w3 wthree w3-agile w3-agileits agileinfo agile">
+    
+<h1 class="agileits w3 wthree w3-agile w3-agileits agileinfo agile">Entrada de dados</h1>
+<form action="cadastrocli.jsp">
+    <fieldset>
+        <font color="white">
+        <p>Nome: <input type="text" name="nome1"></p>
+        <p>CPF: <input type="text" name="cpf1"></p>
+        <p>RG: <input type="text" name="rg1"></p>
+        <p>E-mail: <input type="text" name="email1"></p>
+        <p>Telefone: <input type="text" name="telefone1"></p>
+        <p>Endereço</p>
+        <p>Rua: <input type="text" name="rua1"></p>
+        <p>Bairro: <input type="text" name="bairro1"></p>
+        <p>Logradouro: <input type="text" name="logradouro1"></p>
+        <p>Localidade: <input type="text" name="localidade1"></p>
+        <p>CEP: <input type="text" name="cep1"></p>
+        <p><input type="submit" value="Enviar"></p>
+    </font>
+    </fieldset>
+</form>
+</div>
+<!-- ENTRADA DE DADOS -->
+<br>
+<br>
 
-
+<h2><center><p><font color="white">Dados do cliente:<p></center></font></h2>
+<!-- TABELA COM OS DADOS -->   
 <table border="2" bgcolor="#85929e">
-<font color="red">
 <tr>
-    <th><h2>TESTANDO</h2></th> <th><h2>TESTANDO</h2></th> <th><h2>TESTANDO</h2></th> <th><h2>TESTANDO</h2></th>
+    
+    <th><h3><font color="white"> Nome</font></h3></th> <th><h3><font color="white">CPF</font></h3></th> <th><h3><font color="white">RG</font></h3></th> <th><h3><font color="white"> E-mail</font></h3></th> <th><h3><font color="white"> Telefone</font></h3></th>  <th><h3><font color="white"> Rua</font></h3></th> <th><h3><font color="white"> Bairro</font></h3></th> <th><h3><font color="white"> Logradouro</font></h3></th> <th><h3><font color="white"> Localidade</font></h3></th> <th><h3><font color="white"> CEP</font></h3></th>
+   
+</tr>
+
+<tr>
+ <th><h3><font color="white">0</font></h3></th>
+ <th><h3><font color="white"> 0</font></h3></th> 
+ <th><h3><font color="white"> 0</font></h3></th> 
+ <th><h3><font color="white"> 0</font></h3></th>  
+ <th><h3><font color="white"> 0</font></h3></th>   
+  <th><h3><font color="white">0</font></h3></th>  
+    <th><h3><font color="white">0</font></h3></th>  
+   <th><h3><font color="white">0</font></h3></th>  
+    <th><h3><font color="white">0</font></h3></th>  
+     <th><h3><font color="white">0</font></h3></th>  
+    <th><h3><font color="white"><input type="submit" value="Excluir"</font></h3></th>  
+
+
 </tr>
 </font>
 </table>	
+</div>
+<!--TABELA COM OS DADOS -->
 
 	
 		<!-- BOTÃO VOLTAR-->
