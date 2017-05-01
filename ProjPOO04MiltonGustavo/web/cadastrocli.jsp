@@ -47,13 +47,15 @@
 
 <h1 class="agileits w3 wthree w3-agile w3-agileits agileinfo agile">Cadastro de clientes</h1>
 
+
 <table border="2" bgcolor="#85929e">
 <font color="red">
 <tr>
-<th>TESTANDO</th> <th>TESTANDO</th> <th>TESTANDO</th> <th>TESTANDO</th>
+    <th><h2>TESTANDO</h2></th> <th><h2>TESTANDO</h2></th> <th><h2>TESTANDO</h2></th> <th><h2>TESTANDO</h2></th>
 </tr>
 </font>
 </table>	
+
 	
 		<!-- BOTÃO VOLTAR-->
 <br>
