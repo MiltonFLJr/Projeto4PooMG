@@ -1,13 +1,10 @@
-<%-- 
-    Document   : Cfornecedores
-    Created on : 01/05/2017, 01:23:55
-    Author     : miltonus2
---%>
-
+<%@page import="cadastro.DatabaseFornecedores"%>
+<%@page import="cadastro.Fornecedor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Cadastro de fornecedores</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -53,15 +50,15 @@
     <fieldset>
         <font color="white">
         <p>Nome: <input type="text" name="nome1"></p>
-        <p>Razão Social: <input type="text" name="cpf1"></p>
-        <p>CNPJ: <input type="text" name="rg1"></p>
+        <p>Razão Social: <input type="text" name="rs1"></p>
+        <p>CNPJ: <input type="text" name="cnpj1"></p>
         <p>E-mail: <input type="text" name="email1"></p>
-        <p>Telefone: <input type="text" name="telefone1"></p>
+        <p>Telefone: <input type="text" name="tel1"></p>
         <p>Endereço</p>
         <p>Rua: <input type="text" name="rua1"></p>
         <p>Bairro: <input type="text" name="bairro1"></p>
-        <p>Logradouro: <input type="text" name="logradouro1"></p>
-        <p>Localidade: <input type="text" name="localidade1"></p>
+        <p>Logradouro: <input type="text" name="logra1"></p>
+        <p>Localidade: <input type="text" name="local1"></p>
         <p>CEP: <input type="text" name="cep1"></p>
         <p><input type="submit" value="Enviar"></p>
     </font>
@@ -71,6 +68,57 @@
 <!-- ENTRADA DE DADOS -->
 <br>
 <br>
+
+
+<%
+try{
+    if(request.getParameter("incluirdados")!=null){
+    String nomeF = request.getParameter("nome1");        
+    String rsF = request.getParameter("rsf1");
+    String cnpjF = request.getParameter("cnpj1");
+    String emailF = request.getParameter("email1");
+    String telF = request.getParameter("tel1");
+    String ruaF = request.getParameter("rua11");
+    String bairroF = request.getParameter("bairro1");
+    String lograF = request.getParameter("logra1");
+    String localF = request.getParameter("local1"); 
+    String cepF = request.getParameter("cep1");
+    
+    Fornecedor obj = new Fornecedor();
+    obj.setNomeF(nomeF);
+    obj.setRsF(rsF);
+    obj.setCnpjF(cnpjF);
+    obj.setEmailF(emailF);
+    obj.setTelF(telF);
+    obj.setRuaF(ruaF);
+    obj.setBairroF(bairroF);
+    obj.setLograF(lograF);
+    obj.setLocalF(localF);
+    obj.setCepF(cepF);
+    
+    DatabaseFornecedores.getFornecedores() .add(obj);
+    response.sendRedirect(request.getRequestURI());
+    }else if(request.getParameter("excluir") != null){
+     String nomeF = request.getParameter("nome1");
+     for(int i=0;i<DatabaseFornecedores.getFornecedores() .size(); i++){
+      if(DatabaseFornecedores.getFornecedores().get(i).getNomeF().equals(nomeF)){
+     DatabaseFornecedores.getFornecedores().remove(i);
+     break;
+            }
+}
+  response.sendRedirect(request.getRequestURI());
+    }
+}catch(Exception ex){%>
+ <div style="color: red;">Erro: <%= ex.getMessage() %></div>
+<%}%>
+}
+  response.sendRedirect(request.getRequestURI());
+    }
+ <div style="color: red;">Erro: <%= ex.getMessage() %></div>
+<%}
+
+%>
+
 
 <h2><center><p><font color="white">Dados dos fornecedores:<p></center></font></h2>
 <!-- TABELA COM OS DADOS -->   
@@ -87,21 +135,19 @@
  <th><h2><font color="white"> 0</font></h2></th> 
  <th><h2><font color="white"> 0</font></h2></th>  
  <th><h2><font color="white"> 0</font></h2></th>   
-  <th><h2><font color="white">0</font></h2></th>  
-    <th><h2><font color="white">0</font></h2></th>  
-   <th><h2><font color="white">0</font></h2></th>  
-    <th><h2><font color="white">0</font></h2></th>  
-     <th><h2><font color="white">0</font></h2></th>  
-    <th><h3><font color="white"><input type="submit" value="Excluir"</font></h3></th>  
-
-
+ <th><h2><font color="white">0</font></h2></th>  
+ <th><h2><font color="white">0</font></h2></th>  
+ <th><h2><font color="white">0</font></h2></th>  
+ <th><h2><font color="white">0</font></h2></th>  
+ <th><h2><font color="white">0</font></h2></th>  
+ <th><h3><font color="white"><input type="submit" value="Excluir"</font></h3></th>
 </tr>
 </font>
 </table>	
 </div>
 <!--TABELA COM OS DADOS -->
 	
-	<!-- BOTÃO VOLTAR-->
+<!-- BOTÃO VOLTAR-->
 <br>
 <br>
 <div>
