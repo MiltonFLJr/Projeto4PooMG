@@ -48,7 +48,7 @@
 <h1 class="agileits w3 wthree w3-agile w3-agileits agileinfo agile">Cadastro de fornecedores</h1>
 <div class="content-w3ls agileits w3 wthree w3-agile w3-agileits agileinfo agile">
     
-<h1 class="agileits w3 wthree w3-agile w3-agileits agileinfo agile">Entrada de dados</h1>
+<h1 class="agileits w3 wthree w3-agile w3-agileits agileinfo agile">Ficha de cadastro</h1>
 <form action="cadastrocli.jsp">
     <fieldset>
         <font color="white">
@@ -77,21 +77,21 @@
 <table border="2" bgcolor="#85929e">
 <tr>
     
-    <th><h3><font color="white"> Nome</font></h3></th> <th><h3><font color="white">Razão Social</font></h3></th> <th><h3><font color="white">CNPJ</font></h3></th> <th><h3><font color="white"> E-mail</font></h3></th> <th><h3><font color="white"> Telefone</font></h3></th>  <th><h3><font color="white"> Rua</font></h3></th> <th><h3><font color="white"> Bairro</font></h3></th> <th><h3><font color="white"> Logradouro</font></h3></th> <th><h3><font color="white"> Localidade</font></h3></th> <th><h3><font color="white"> CEP</font></h3></th>
+    <th><h2><font color="white"> Nome</font></h2></th> <th><h2><font color="white">Razão Social</font></h2></th> <th><h2><font color="white">CNPJ</font></h2></th> <th><h2><font color="white"> E-mail</font></h2></th> <th><h2><font color="white"> Telefone</font></h2></th>  <th><h2><font color="white"> Rua</font></h2></th> <th><h2><font color="white"> Bairro</font></h2></th> <th><h2><font color="white"> Logradouro</font></h2></th> <th><h2><font color="white"> Localidade</font></h2></th> <th><h2><font color="white"> CEP</font></h2></th>
    
 </tr>
 
 <tr>
- <th><h3><font color="white">0</font></h3></th>
- <th><h3><font color="white"> 0</font></h3></th> 
- <th><h3><font color="white"> 0</font></h3></th> 
- <th><h3><font color="white"> 0</font></h3></th>  
- <th><h3><font color="white"> 0</font></h3></th>   
-  <th><h3><font color="white">0</font></h3></th>  
-    <th><h3><font color="white">0</font></h3></th>  
-   <th><h3><font color="white">0</font></h3></th>  
-    <th><h3><font color="white">0</font></h3></th>  
-     <th><h3><font color="white">0</font></h3></th>  
+ <th><h2><font color="white">0</font></h2></th>
+ <th><h2><font color="white"> 0</font></h2></th> 
+ <th><h2><font color="white"> 0</font></h2></th> 
+ <th><h2><font color="white"> 0</font></h2></th>  
+ <th><h2><font color="white"> 0</font></h2></th>   
+  <th><h2><font color="white">0</font></h2></th>  
+    <th><h2><font color="white">0</font></h2></th>  
+   <th><h2><font color="white">0</font></h2></th>  
+    <th><h2><font color="white">0</font></h2></th>  
+     <th><h2><font color="white">0</font></h2></th>  
     <th><h3><font color="white"><input type="submit" value="Excluir"</font></h3></th>  
 
 

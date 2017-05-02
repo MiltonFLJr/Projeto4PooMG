@@ -4,6 +4,8 @@
     Author     : miltonus2
 --%>
 
+<%@page import="cadastro.DatabaseClientes"%>
+<%@page import="cadastro.cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!doctype html>
@@ -51,8 +53,8 @@
 <h1 class="agileits w3 wthree w3-agile w3-agileits agileinfo agile">Cadastro de clientes</h1>
 <div class="content-w3ls agileits w3 wthree w3-agile w3-agileits agileinfo agile">
     
-<h1 class="agileits w3 wthree w3-agile w3-agileits agileinfo agile">Entrada de dados</h1>
-<form action="cadastrocli.jsp">
+<h1 class="agileits w3 wthree w3-agile w3-agileits agileinfo agile">Ficha de cadastro</h1>
+<form>
     <fieldset>
         <font color="white">
         <p>Nome: <input type="text" name="nome1"></p>
@@ -63,43 +65,95 @@
         <p>Endereço</p>
         <p>Rua: <input type="text" name="rua1"></p>
         <p>Bairro: <input type="text" name="bairro1"></p>
-        <p>Logradouro: <input type="text" name="logradouro1"></p>
+        <p>Numero: <input type="text" name="numero1"></p>
         <p>Localidade: <input type="text" name="localidade1"></p>
         <p>CEP: <input type="text" name="cep1"></p>
-        <p><input type="submit" value="Enviar"></p>
+        <p><input type="submit" value="Enviar" name="incluirdados"></p>
     </font>
     </fieldset>
 </form>
 </div>
 <!-- ENTRADA DE DADOS -->
+
+<!-- CAPTURA DO PARÂMETROS DE ENTRADA E FUNÇÕES DA TABELA -->
+<%
+try{
+    if(request.getParameter("incluirdados")!=null){
+        String cpfC = request.getParameter("cpf1");
+        String nomeC = request.getParameter("nome1");
+        String rgC = request.getParameter("rg1");
+    String emailC = request.getParameter("email1");
+    String telefoneC = request.getParameter("telefone1");
+    String ruaC = request.getParameter("rua1");
+    String bairroC = request.getParameter("bairro1");
+    String numeroC = request.getParameter("numero1"); 
+    String localidadeC = request.getParameter("localidade1"); 
+    String cepC = request.getParameter("cep1"); 
+    cliente clt = new cliente();
+    clt.setCpfC(cpfC);
+    clt.setNomeC(nomeC);
+    clt.setRgC(rgC);
+    clt.setEmailC(emailC);
+    clt.setTelefoneC(telefoneC);
+    clt.setRuaC(ruaC);
+    clt.setBairroC(bairroC);
+    clt.setNumeroC(numeroC);
+    clt.setLocalidadeC(localidadeC);
+    clt.setCepC(cepC);
+    DatabaseClientes.getClientes() .add(clt);
+    response.sendRedirect(request.getRequestURI());
+    }else if(request.getParameter("excluir") != null){
+     String nomeC = request.getParameter("nome1");
+     for(int i=0;i<DatabaseClientes.getClientes() .size(); i++){
+      if(DatabaseClientes.getClientes().get(i).getNomeC().equals(nomeC)){
+     DatabaseClientes.getClientes().remove(i);
+     break;
+            }
+}
+  response.sendRedirect(request.getRequestURI());
+    }
+}catch(Exception ex){%>
+ <div style="color: red;">Erro: <%= ex.getMessage() %></div>
+<%}
+
+%>
+<!-- CAPTURA DO PARÂMETROS DE ENTRADA E FUNÇÕES DA TABELA-->
+
 <br>
 <br>
+
 
 <h2><center><p><font color="white">Dados do cliente:<p></center></font></h2>
 <!-- TABELA COM OS DADOS -->   
 <table border="2" bgcolor="#85929e">
 <tr>
     
-    <th><h3><font color="white"> Nome</font></h3></th> <th><h3><font color="white">CPF</font></h3></th> <th><h3><font color="white">RG</font></h3></th> <th><h3><font color="white"> E-mail</font></h3></th> <th><h3><font color="white"> Telefone</font></h3></th>  <th><h3><font color="white"> Rua</font></h3></th> <th><h3><font color="white"> Bairro</font></h3></th> <th><h3><font color="white"> Logradouro</font></h3></th> <th><h3><font color="white"> Localidade</font></h3></th> <th><h3><font color="white"> CEP</font></h3></th>
+    <th><h2><font color="white"> Nome</font></h2></th> <th><h2><font color="white">CPF</font></h2></th> <th><h2><font color="white">RG</font></h2></th> <th><h2><font color="white"> E-mail</font></h2></th> <th><h2><font color="white"> Telefone</font></h2></th>  <th><h2><font color="white"> Rua</font></h2></th> <th><h2><font color="white"> Bairro</font></h2></th> <th><h2><font color="white"> Numero</font></h2></th> <th><h2><font color="white"> Localidade</font></h2></th> <th><h2><font color="white"> CEP</font></h2></th>
    
 </tr>
 
+<% for(cliente clt : DatabaseClientes.getClientes()){%>
 <tr>
- <th><h3><font color="white">0</font></h3></th>
- <th><h3><font color="white"> 0</font></h3></th> 
- <th><h3><font color="white"> 0</font></h3></th> 
- <th><h3><font color="white"> 0</font></h3></th>  
- <th><h3><font color="white"> 0</font></h3></th>   
-  <th><h3><font color="white">0</font></h3></th>  
-    <th><h3><font color="white">0</font></h3></th>  
-   <th><h3><font color="white">0</font></h3></th>  
-    <th><h3><font color="white">0</font></h3></th>  
-     <th><h3><font color="white">0</font></h3></th>  
-    <th><h3><font color="white"><input type="submit" value="Excluir"</font></h3></th>  
-
+ <th><h2><font color="white"> <%=clt.getNomeC()%> </font></h2></th>
+ <th><h2><font color="white">  <%=clt.getCpfC()%>   </font></h2></th> 
+ <th><h2><font color="white"> <%=clt.getRgC()%> </font></h2></th> 
+ <th><h2><font color="white"> <%=clt.getEmailC()%> </font></h2></th>  
+ <th><h2><font color="white"> <%=clt.getTelefoneC()%> </font></h2></th>   
+  <th><h2><font color="white"> <%=clt.getRuaC()%>  </font></h2></th>  
+    <th><h2><font color="white">  <%=clt.getBairroC()%></font></h2></th>  
+   <th><h2><font color="white">  <%=clt.getNumeroC()%> </font></h2></th>  
+    <th><h2><font color="white"> <%=clt.getLocalidadeC()%> </font></h2></th>  
+     <th><h2><font color="white"> <%=clt.getCepC()%> </font></h2></th>
+     <th>
+<form>   
+     <input type="hidden" name="nome1" value="<%= clt.getNomeC() %>"/>
+     <input type="submit" name="excluir" value="Excluir"/>
+             </form>
+     </th>
 
 </tr>
 </font>
+  <%}%>
 </table>	
 </div>
 <!--TABELA COM OS DADOS -->
