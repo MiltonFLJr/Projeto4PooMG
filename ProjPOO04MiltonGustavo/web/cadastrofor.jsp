@@ -140,7 +140,7 @@ try{
  <th><h2><font color="white"> <%= obj.getLograF() %> </font></h2></th>  
  <th><h2><font color="white"> <%= obj.getLocalF() %> </font></h2></th>  
  <th><h2><font color="white"> <%= obj.getCepF()%> </font></h2></th>  
- <th><h3><font color="white"><input type="submit" value="Excluir"</font></h3></th>
+
 
 <th>
 <form>   
