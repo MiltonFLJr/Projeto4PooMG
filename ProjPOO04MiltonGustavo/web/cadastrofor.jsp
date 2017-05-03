@@ -18,7 +18,7 @@
 <link href="css/style.css" rel='stylesheet' type='text/css' media="all" />
 <!-- /css -->
 </head>
-<body>
+
 
 <!-- COMEÇO DO NAV-->
 <div>
@@ -41,12 +41,13 @@
 </div>
 <!--FIM DO NAV-->
 
+
 <!-- ENTRADA DE DADOS -->
 <h1 class="agileits w3 wthree w3-agile w3-agileits agileinfo agile">Cadastro de fornecedores</h1>
 <div class="content-w3ls agileits w3 wthree w3-agile w3-agileits agileinfo agile">
     
 <h1 class="agileits w3 wthree w3-agile w3-agileits agileinfo agile">Ficha de cadastro</h1>
-<form action="cadastrocli.jsp">
+<form action="cadastrofor.jsp">
     <fieldset>
         <font color="white">
         <p>Nome: <input type="text" name="nome1"></p>
@@ -66,8 +67,6 @@
 </form>
 </div>
 <!-- ENTRADA DE DADOS -->
-<br>
-<br>
 
 
 <%
@@ -98,8 +97,10 @@ try{
     
     DatabaseFornecedores.getFornecedores() .add(obj);
     response.sendRedirect(request.getRequestURI());
+    
     }else if(request.getParameter("excluir") != null){
      String nomeF = request.getParameter("nome1");
+     
      for(int i=0;i<DatabaseFornecedores.getFornecedores() .size(); i++){
       if(DatabaseFornecedores.getFornecedores().get(i).getNomeF().equals(nomeF)){
      DatabaseFornecedores.getFornecedores().remove(i);
@@ -108,42 +109,48 @@ try{
 }
   response.sendRedirect(request.getRequestURI());
     }
-}catch(Exception ex){%>
- <div style="color: red;">Erro: <%= ex.getMessage() %></div>
-<%}%>
-}
-  response.sendRedirect(request.getRequestURI());
-    }
- <div style="color: red;">Erro: <%= ex.getMessage() %></div>
-<%}
+}catch(Exception ex)
 
-%>
+{%> <div style="color: red;">Erro: <%= ex.getMessage() %></div> <% } %>
+
+
+<br>
+<br>
 
 
 <h2><center><p><font color="white">Dados dos fornecedores:<p></center></font></h2>
 <!-- TABELA COM OS DADOS -->   
 <table border="2" bgcolor="#85929e">
 <tr>
-    
     <th><h2><font color="white"> Nome</font></h2></th> <th><h2><font color="white">Razão Social</font></h2></th> <th><h2><font color="white">CNPJ</font></h2></th> <th><h2><font color="white"> E-mail</font></h2></th> <th><h2><font color="white"> Telefone</font></h2></th>  <th><h2><font color="white"> Rua</font></h2></th> <th><h2><font color="white"> Bairro</font></h2></th> <th><h2><font color="white"> Logradouro</font></h2></th> <th><h2><font color="white"> Localidade</font></h2></th> <th><h2><font color="white"> CEP</font></h2></th>
-   
+
 </tr>
 
+<% for(Fornecedor obj : DatabaseFornecedores.getFornecedores()){%>
 <tr>
- <th><h2><font color="white">0</font></h2></th>
- <th><h2><font color="white"> 0</font></h2></th> 
- <th><h2><font color="white"> 0</font></h2></th> 
- <th><h2><font color="white"> 0</font></h2></th>  
- <th><h2><font color="white"> 0</font></h2></th>   
- <th><h2><font color="white">0</font></h2></th>  
- <th><h2><font color="white">0</font></h2></th>  
- <th><h2><font color="white">0</font></h2></th>  
- <th><h2><font color="white">0</font></h2></th>  
- <th><h2><font color="white">0</font></h2></th>  
+ <th><h2><font color="white"> <%= obj.getNomeF() %> </font></h2></th>
+ <th><h2><font color="white"> <%= obj.getRsF() %> </font></h2></th> 
+ <th><h2><font color="white"> <%= obj.getCnpjF() %> </font></h2></th> 
+ <th><h2><font color="white"> <%= obj.getEmailF() %> </font></h2></th>  
+ <th><h2><font color="white"> <%= obj.getTelF() %> </font></h2></th>   
+ <th><h2><font color="white"> <%= obj.getRuaF() %> </font></h2></th>  
+ <th><h2><font color="white"> <%= obj.getBairroF() %> </font></h2></th>  
+ <th><h2><font color="white"> <%= obj.getLograF() %> </font></h2></th>  
+ <th><h2><font color="white"> <%= obj.getLocalF() %> </font></h2></th>  
+ <th><h2><font color="white"> <%= obj.getCepF()%> </font></h2></th>  
  <th><h3><font color="white"><input type="submit" value="Excluir"</font></h3></th>
+
+<th>
+<form>   
+    <input type="hidden" name="nome1" value="<%= obj.getNomeF() %>"/>
+    <input type="submit" name="excluir" value="Excluir"/>
+</form>
+</th>
+
 </tr>
 </font>
-</table>	
+<% } %>
+</table>
 </div>
 <!--TABELA COM OS DADOS -->
 	
@@ -165,5 +172,5 @@ try{
   </center>
 </div>
 <!-- BOTÃO VOLTAR -->
-</body>
+
 </html>
