@@ -47,7 +47,7 @@
 <div class="content-w3ls agileits w3 wthree w3-agile w3-agileits agileinfo agile">
     
 <h1 class="agileits w3 wthree w3-agile w3-agileits agileinfo agile">Ficha de cadastro</h1>
-<form action="cadastrofor.jsp">
+<form>
     <fieldset>
         <font color="white">
         <p>Nome: <input type="text" name="nome1"></p>
@@ -61,7 +61,7 @@
         <p>Logradouro: <input type="text" name="logra1"></p>
         <p>Localidade: <input type="text" name="local1"></p>
         <p>CEP: <input type="text" name="cep1"></p>
-        <p><input type="submit" value="Enviar"></p>
+        <p><input type="submit" value="Enviar" name="incluirdados"></p>
     </font>
     </fieldset>
 </form>
@@ -73,11 +73,11 @@
 try{
     if(request.getParameter("incluirdados")!=null){
     String nomeF = request.getParameter("nome1");        
-    String rsF = request.getParameter("rsf1");
+    String rsF = request.getParameter("rs1");
     String cnpjF = request.getParameter("cnpj1");
     String emailF = request.getParameter("email1");
     String telF = request.getParameter("tel1");
-    String ruaF = request.getParameter("rua11");
+    String ruaF = request.getParameter("rua1");
     String bairroF = request.getParameter("bairro1");
     String lograF = request.getParameter("logra1");
     String localF = request.getParameter("local1"); 
@@ -109,9 +109,11 @@ try{
 }
   response.sendRedirect(request.getRequestURI());
     }
-}catch(Exception ex)
+}catch(Exception ex){%>
+ 
+<%}
 
-{%> <div style="color: red;">Erro: <%= ex.getMessage() %></div> <% } %>
+%>
 
 
 <br>

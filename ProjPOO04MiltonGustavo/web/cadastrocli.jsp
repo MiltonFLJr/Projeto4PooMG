@@ -113,7 +113,7 @@ try{
   response.sendRedirect(request.getRequestURI());
     }
 }catch(Exception ex){%>
- <div style="color: red;">Erro: <%= ex.getMessage() %></div>
+ 
 <%}
 
 %>

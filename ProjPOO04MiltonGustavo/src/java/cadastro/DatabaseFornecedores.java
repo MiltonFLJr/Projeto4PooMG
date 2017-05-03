@@ -17,6 +17,7 @@ public class DatabaseFornecedores {
     obj.setBairroF(" ");
     obj.setLograF(" ");
     obj.setLocalF(" ");    
+    obj.setCepF(" ");
     fornecedores.add(obj);
     }
 
